@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Prisma DB
+prisma/db/
+*.db
+*.db-journal
+
+# IDE
+.vscode/
+.idea/
+
+# Skills (internal, not for deploy)
+skills/
+
+# Temp/search files from analysis
+search*.json
+tool-results/
+scripts/report_body.py
+scripts/body.pdf
+scripts/cover.html
+scripts/cover.pdf
+
+# Download (PDFs etc)
+download/*.pdf
+download/*.html
+download/*.png
+
+# Worklog
+worklog.md
+
+# Z-scripts
+.zscripts/
+dev.log
+server.log
+
+# Tests
+tests/
+
+# Examples
+examples/
