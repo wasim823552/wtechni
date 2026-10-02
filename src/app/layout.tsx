@@ -91,6 +91,12 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Umami Analytics */}
+        <script
+          defer
+          src="https://analytics.wtechni.com/script.js"
+          data-website-id="c7c6fae8-cc42-40f5-a7e1-9b1e51efe49f"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
