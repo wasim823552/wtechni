@@ -58,14 +58,22 @@ export default function HomePage() {
                     placeholder='Search AI tools... (e.g., "AI writing", "video generator")'
                     className="w-full pl-12 pr-32 py-4 text-base bg-background border-2 border-border/60 rounded-2xl focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 shadow-lg shadow-black/5 placeholder:text-muted-foreground/50 transition-all"
                   />
-                  <Button className="absolute right-2 top-1/2 -translate-y-1/2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-5">
+                  <Button
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-5"
+                    onClick={() => {
+                      const q = searchQuery.trim();
+                      if (q && typeof window !== "undefined" && (window as any).umami) {
+                        (window as any).umami.track("search:term", { data: { term: q.slice(0, 60) } });
+                      }
+                    }}
+                  >
                     Search
                   </Button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs text-muted-foreground">
                   <span>Popular:</span>
                   {["ChatGPT", "Midjourney", "Jasper", "Copilot", "Notion AI"].map((term) => (
-                    <button key={term} onClick={() => setSearchQuery(term)} className="px-2.5 py-1 bg-muted/60 hover:bg-muted rounded-full transition-colors hover:text-foreground">
+                    <button key={term} onClick={() => setSearchQuery(term)} data-umami-event="search:suggest" data-umami-event-term={term} className="px-2.5 py-1 bg-muted/60 hover:bg-muted rounded-full transition-colors hover:text-foreground">
                       {term}
                     </button>
                   ))}
@@ -117,7 +125,7 @@ export default function HomePage() {
                 </p>
               </div>
               <Button variant="outline" className="shrink-0 group" asChild>
-                <a href="/tools">
+                <a href="/tools" data-umami-event="cta:view-all-tools">
                   View All Tools
                   <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </a>
@@ -179,7 +187,7 @@ export default function HomePage() {
                 </p>
               </div>
               <Button variant="outline" className="shrink-0 group" asChild>
-                <a href="/blog">
+                <a href="/blog" data-umami-event="cta:all-articles">
                   All Articles
                   <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </a>
@@ -203,7 +211,7 @@ export default function HomePage() {
               <p className="mt-3 text-emerald-100 text-lg">
                 Get weekly curated reviews, comparison insights, and exclusive deals delivered straight to your inbox. Join 12,000+ subscribers.
               </p>
-              <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <form id="newsletter-home" className="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
                   placeholder="Enter your email address"
