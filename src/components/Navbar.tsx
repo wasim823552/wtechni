@@ -74,7 +74,7 @@ export function Navbar() {
 
             {/* CTA - Desktop */}
             <Button className="hidden sm:flex bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm gap-1.5" asChild>
-              <a href="/tools">
+              <a href="/tools" data-umami-event="cta:explore-tools" data-umami-event-location="navbar">
                 <Zap className="h-4 w-4" />
                 Explore Tools
               </a>
@@ -122,7 +122,7 @@ export function Navbar() {
             ))}
             <div className="pt-2">
               <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm gap-1.5" asChild>
-                <a href="/tools">
+                <a href="/tools" data-umami-event="cta:explore-tools" data-umami-event-location="mobile-menu">
                   <Zap className="h-4 w-4" />
                   Explore Tools
                 </a>
