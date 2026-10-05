@@ -106,13 +106,13 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
             size="sm"
             asChild
           >
-            <a href={tool.affiliateUrl} target="_blank" rel="noopener noreferrer">
+            <a href={tool.affiliateUrl} target="_blank" rel="noopener noreferrer" data-umami-event="tool:visit" data-umami-event-tool={tool.name} data-umami-event-pricing={tool.pricingModel}>
               Try {tool.name}
               <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
             </a>
           </Button>
           <Button variant="outline" size="sm" className="shrink-0" asChild>
-            <Link href={`/tools/${tool.slug}`}>Review</Link>
+            <Link href={`/tools/${tool.slug}`} data-umami-event="tool:review" data-umami-event-tool={tool.name}>Review</Link>
           </Button>
         </div>
       </CardContent>
