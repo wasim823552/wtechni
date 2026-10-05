@@ -86,7 +86,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground mb-3">
               Get weekly AI tool reviews and comparisons delivered to your inbox.
             </p>
-            <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
+            <form id="newsletter-footer" className="space-y-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="your@email.com"
